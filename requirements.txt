@@ -1,0 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+gradio>=4.44
+torch
+torchvision
+timm
+transformers
+sentence-transformers
+scikit-learn
+pandas
+Pillow

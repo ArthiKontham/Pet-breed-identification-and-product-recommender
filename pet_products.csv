@@ -1,0 +1,47 @@
+product_name,pet_type,pet_category,image1,image2,image3
+Small Dog Bed,dog,small,productimages/small_dog_bed1.jpg,productimages/small_dog_bed2.jpg,productimages/small_dog_bed3.jpg
+Dog Chew Toy,dog,small,productimages/dog_toy1.jpg,productimages/dog_toy2.jpg,productimages/dog_toy3.jpg
+Dog Shampoo,dog,small,productimages/dog_shampoo1.jpg,productimages/dog_shampoo2.jpg,productimages/dog_shampoo3.jpg
+Dog Comb,dog,small,productimages/dog_comb1.jpg,productimages/dog_comb2.jpg,productimages/dog_comb3.jpg
+Small Dog Leash,dog,small,productimages/small_dog_leash1.jpg,productimages/small_dog_leash2.jpg,productimages/small_dog_leash3.jpg
+Dog Toothbrush (Small Breed),dog,small,productimages/small_dog_toothbrush1.jpg,productimages/small_dog_toothbrush2.jpg,productimages/small_dog_toothbrush3.jpg
+
+Large Dog Bed,dog,large,productimages/large_dog_bed1.jpg,productimages/large_dog_bed2.jpg,productimages/large_dog_bed3.jpg
+Heavy Duty Leash,dog,large,productimages/dog_leash1.jpg,productimages/dog_leash2.jpg,productimages/dog_leash3.jpg
+Strong Chew Toy,dog,large,productimages/strong_toy1.jpg,productimages/strong_toy2.jpg,productimages/strong_toy3.jpg
+Dog Grooming Brush,dog,large,productimages/dog_brush1.jpg,productimages/dog_brush2.jpg,productimages/dog_brush3.jpg
+Dog Toothbrush (Large Breed),dog,large,productimages/large_dog_toothbrush1.jpg,productimages/large_dog_toothbrush2.jpg,productimages/large_dog_toothbrush3.jpg
+
+Kitten Bed,cat,kitten,productimages/kitten_bed1.jpg,productimages/kitten_bed2.jpg,productimages/kitten_bed3.jpg
+Kitten Toy,cat,kitten,productimages/kitten_toy1.jpg,productimages/kitten_toy2.jpg,productimages/kitten_toy3.jpg
+Kitten Food Bowl,cat,kitten,productimages/kitten_bowl1.jpg,productimages/kitten_bowl2.jpg,productimages/kitten_bowl3.jpg
+Kitten Shampoo,cat,kitten,productimages/kitten_shampoo1.jpg,productimages/kitten_shampoo2.jpg,productimages/kitten_shampoo3.jpg
+Kitten Litter Box,cat,kitten,productimages/kitten_litterbox1.jpg,productimages/kitten_litterbox2.jpg,productimages/kitten_litterbox3.jpg
+Kitten Toothbrush,cat,kitten,productimages/kitten_toothbrush1.jpg,productimages/kitten_toothbrush2.jpg,productimages/kitten_toothbrush3.jpg
+
+Cat Bed,cat,adult,productimages/cat_bed1.jpg,productimages/cat_bed2.jpg,productimages/cat_bed3.jpg
+Cat Scratching Post,cat,adult,productimages/cat_post1.jpg,productimages/cat_post2.jpg,productimages/cat_post3.jpg
+Cat Toy Ball,cat,adult,productimages/cat_toy1.jpg,productimages/cat_toy2.jpg,productimages/cat_toy3.jpg
+Cat Grooming Brush,cat,adult,productimages/cat_brush1.jpg,productimages/cat_brush2.jpg,productimages/cat_brush3.jpg
+Cat Litter Box,cat,adult,productimages/cat_litterbox1.jpg,productimages/cat_litterbox2.jpg,productimages/cat_litterbox3.jpg
+Cat Toothbrush,cat,adult,productimages/cat_toothbrush1.jpg,productimages/cat_toothbrush2.jpg,productimages/cat_toothbrush3.jpg
+
+Small Bird Cage,bird,small,productimages/small_cage1.jpg,productimages/small_cage2.jpg,productimages/small_cage3.jpg
+Bird Swing Toy,bird,small,productimages/bird_swing1.jpg,productimages/bird_swing2.jpg,productimages/bird_swing3.jpg
+Bird Feeder,bird,small,productimages/bird_feeder1.jpg,productimages/bird_feeder2.jpg,productimages/bird_feeder3.jpg
+Bird Bath,bird,small,productimages/bird_bath1.jpg,productimages/bird_bath2.jpg,productimages/bird_bath3.jpg
+
+Large Bird Cage,bird,large,productimages/large_cage1.jpg,productimages/large_cage2.jpg,productimages/large_cage3.jpg
+Parrot Toy,bird,large,productimages/parrot_toy1.jpg,productimages/parrot_toy2.jpg,productimages/parrot_toy3.jpg
+Bird Perch,bird,large,productimages/perch1.jpg,productimages/perch2.jpg,productimages/perch3.jpg
+Bird Food Bowl,bird,large,productimages/bird_bowl1.jpg,productimages/bird_bowl2.jpg,productimages/bird_bowl3.jpg
+
+Small Aquarium Tank,fish,small,productimages/small_aquarium1.jpg,productimages/small_aquarium2.jpg,productimages/small_aquarium3.jpg
+Fish Food,fish,small,productimages/fish_food1.jpg,productimages/fish_food2.jpg,productimages/fish_food3.jpg
+Aquarium Filter,fish,small,productimages/filter1.jpg,productimages/filter2.jpg,productimages/filter3.jpg
+Aquarium Decoration,fish,small,productimages/decor1.jpg,productimages/decor2.jpg,productimages/decor3.jpg
+
+Large Aquarium Tank,fish,large,productimages/large_aquarium1.jpg,productimages/large_aquarium2.jpg,productimages/large_aquarium3.jpg
+Water Pump,fish,large,productimages/water_pump1.jpg,productimages/water_pump2.jpg,productimages/water_pump3.jpg
+Air Pump,fish,large,productimages/air_pump1.jpg,productimages/air_pump2.jpg,productimages/air_pump3.jpg
+Aquarium Light,fish,large,productimages/light1.jpg,productimages/light2.jpg,productimages/light3.jpg

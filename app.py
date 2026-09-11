@@ -145,7 +145,6 @@ def recommend_products(pet_type, breed, size, age, weight):
 # --------------------------------------------------------------------------
 
 CUSTOM_CSS = """
-/* Modest bump only. Default Gradio theme, spacing and styling are untouched. */
 
 #app-title h1      { font-size: 1.95rem !important; }
 #app-subtitle p    { font-size: 1.05rem !important; }

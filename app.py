@@ -1,7 +1,6 @@
 import json
 import os
 import random
-import gradio as gr
 import pandas as pd
 import timm
 import torch

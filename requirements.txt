@@ -1,11 +1,12 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 
-gradio>=4.44
+streamlit
 torch
 torchvision
 timm
 transformers
 sentence-transformers
+huggingface_hub
 scikit-learn
 pandas
 Pillow

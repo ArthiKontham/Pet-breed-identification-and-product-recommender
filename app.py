@@ -15,6 +15,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 def path(*parts):
     return os.path.join(BASE, *parts)
 
+
 with open(path("classes.json")) as f:
     pet_classes = json.load(f)
 with open(path("fish_classes.json")) as f:
@@ -29,6 +30,7 @@ transform = transforms.Compose([
                          std=[0.229, 0.224, 0.225]),
 ])
 
+
 def load_model(weights, num_classes):
     model = timm.create_model(
         "swin_tiny_patch4_window7_224",
@@ -40,6 +42,7 @@ def load_model(weights, num_classes):
     model.to(DEVICE).eval()
     return model
 
+
 pet_model = load_model("final_pet_model.pth", len(pet_classes))
 fish_model = load_model("fish_model.pth", len(fish_classes))
 bird_model = load_model("bird_model.pth", len(bird_classes))
@@ -49,6 +52,7 @@ HEADS = {
     "Fish": (fish_model, fish_classes),
     "Bird": (bird_model, bird_classes),
 }
+
 
 def predict_breed(image, animal_type):
     if image is None:
@@ -65,13 +69,16 @@ def predict_breed(image, animal_type):
     note = "" if conf >= 60 else "\n\nLow confidence — try a clearer, closer photo."
     return f"Breed / species: {name}\nConfidence: {conf:.2f}%{note}"
 
+
 from transformers import BertForSequenceClassification, BertTokenizer  # noqa: E402
+
 food_df = pd.read_csv(path("pet_food_dataset.csv"))
 food_tokenizer = BertTokenizer.from_pretrained(path("food_bert_model"))
 food_model = BertForSequenceClassification.from_pretrained(path("food_bert_model"))
 food_model.eval()
 
 FOOD_LABELS = ["Safe", "Moderate", "Unsafe"]
+
 
 def check_food(pet_type, pet_size, food):
     if not food or not food.strip():
@@ -102,14 +109,17 @@ def check_food(pet_type, pet_size, food):
     pred = torch.argmax(logits).item()
     return f"{FOOD_LABELS[pred].upper()}  (model prediction)\n\nNot in the reference table; classified by the model."
 
+
 from sentence_transformers import SentenceTransformer  # noqa: E402
 from sklearn.metrics.pairwise import cosine_similarity  # noqa: E402
+
 products = pd.read_csv(path("pet_products.csv"))
 products["text"] = (products["product_name"] + " "
                     + products["pet_type"] + " "
                     + products["pet_category"])
 encoder = SentenceTransformer("all-MiniLM-L6-v2")
 product_embeddings = encoder.encode(products["text"].tolist())
+
 
 def recommend_products(pet_type, breed, size, age, weight):
     if size == "big":
@@ -131,9 +141,45 @@ def recommend_products(pet_type, breed, size, age, weight):
     return gallery
 
 
-with gr.Blocks(title="Pet Breed Identification and Product Recommender") as demo:
-    gr.Markdown("# Pet Breed Identification and Product Recommender")
-    gr.Markdown("Identify your pet, check whether a food is suitable, and get product suggestions.")
+# --------------------------------------------------------------------------
+# Larger type. Layout is unchanged.
+# --------------------------------------------------------------------------
+
+CUSTOM_CSS = """
+/* Modest bump only. Default Gradio theme, spacing and styling are untouched. */
+
+#app-title h1      { font-size: 1.95rem !important; }
+#app-subtitle p    { font-size: 1.05rem !important; }
+
+button[role="tab"] { font-size: 1.05rem !important; }
+
+label span,
+span[data-testid="block-info"] { font-size: 1rem !important; }
+
+input[type="text"],
+input[type="number"],
+textarea,
+select             { font-size: 1rem !important; }
+
+#breed-output textarea,
+#food-output textarea { font-size: 1.05rem !important; line-height: 1.55 !important; }
+
+.gr-button, button.primary { font-size: 1.05rem !important; }
+
+#app-footer p      { font-size: 0.95rem !important; }
+"""
+
+with gr.Blocks(
+    title="Pet Breed Identification and Product Recommender",
+    css=CUSTOM_CSS,
+) as demo:
+
+    gr.Markdown("# Pet Breed Identification and Product Recommender", elem_id="app-title")
+    gr.Markdown(
+        "Identify your pet, check whether a food is suitable, and get product suggestions.",
+        elem_id="app-subtitle",
+    )
+
     with gr.Tab("Breed Identification"):
         with gr.Row():
             with gr.Column():
@@ -142,7 +188,7 @@ with gr.Blocks(title="Pet Breed Identification and Product Recommender") as demo
                                        label="Animal type", value="Dog/Cat")
                 identify_btn = gr.Button("Identify", variant="primary")
             with gr.Column():
-                breed_out = gr.Textbox(label="Prediction", lines=4)
+                breed_out = gr.Textbox(label="Prediction", lines=4, elem_id="breed-output")
         identify_btn.click(predict_breed, [image_in, animal_type], breed_out)
 
     with gr.Tab("Product Recommendation"):
@@ -157,6 +203,7 @@ with gr.Blocks(title="Pet Breed Identification and Product Recommender") as demo
             with gr.Column():
                 gallery = gr.Gallery(label="Recommended products", columns=2, height=420)
         rec_btn.click(recommend_products, [p_type, p_breed, p_size, p_age, p_weight], gallery)
+
     with gr.Tab("Food Quality Check"):
         with gr.Row():
             with gr.Column():
@@ -166,10 +213,12 @@ with gr.Blocks(title="Pet Breed Identification and Product Recommender") as demo
                                     placeholder="e.g. chicken meal, brown rice")
                 food_btn = gr.Button("Check", variant="primary")
             with gr.Column():
-                food_out = gr.Textbox(label="Result", lines=10)
+                food_out = gr.Textbox(label="Result", lines=10, elem_id="food-output")
         food_btn.click(check_food, [f_type, f_size, f_text], food_out)
+
     gr.Markdown(
-        "_Guidance only. For medical or dietary concerns about your pet, consult a veterinarian._"
+        "_Guidance only. For medical or dietary concerns about your pet, consult a veterinarian._",
+        elem_id="app-footer",
     )
 
 if __name__ == "__main__":

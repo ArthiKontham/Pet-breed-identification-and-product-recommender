@@ -6,7 +6,7 @@ An integrated pet-care system that identifies pet breeds, checks food quality, a
 
 ## Preview
 
-![Pet Breed Identification and Product Recommendation](preview.png)
+![Pet Breed Identification and Product Recommendation](Preview.png)
 
 ## 1. Project Overview
 

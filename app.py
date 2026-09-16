@@ -226,8 +226,12 @@ HEADS = {
 with st.sidebar:
     st.markdown("### About")
     st.write(
-        "A multimodal pet-care assistant combining computer vision and "
-        "natural language processing."
+        "Pet Breed Identification and Product Recommender is an integrated "
+        "pet-care system that identifies pet breeds and species from uploaded "
+        "images. It uses a Swin Transformer model for image-based "
+        "classification across 200+ pet breeds and species. The system also "
+        "uses BERT to classify pet food as Safe, Moderate or Unsafe, and "
+        "recommends suitable pet products based on pet details and preferences."
     )
     st.markdown("---")
     st.markdown("**Models**")
